@@ -1,0 +1,159 @@
+//Exercise 1
+Given two numbers print 1 if one of them is divisible by the other one, otherwise print 0.
+(Hint: use maximum 1 “if” statement).
+
+function floor(a,b)
+{
+if(a%b==0||b%a==0)
+{
+    console.log(1);
+}
+    else 
+{
+    console.log(0);
+}
+}
+floor(5,15);
+
+//Exercise 2
+Given two variables, which are the angles of a triangle. Find the third angle of the
+triangle. (Sum of the angles of a triangle equals 180 degrees).
+
+function thirdangle(one,two)
+{
+    if(one+two>=180)
+        console.log('Too big!');
+    else
+
+        {let three=180-(one+two);
+        console.log('Third angle will be '+three);
+        }
+}
+thirdangle(25,60);
+
+//Exercise 3
+Given number n (positive integer). Print the value of n + nn + nnn(not multiplication).
+
+function f1(n){
+if(n>0&&n%2==0||n%2==1)
+console.log(`${n}${n+n}${n+n+n}`);
+}
+f1(5);
+
+//Exercise 4
+Given a positive integer. Bring the last digit of the number to the beginning. Print the new
+number. If the last digit of the inserted number is 0, number remains the same.
+
+function lastbring(nn)
+{
+    let last;
+    if(nn<10)
+        console.log(nn);
+else
+    if(nn>0&&nn%2==0||nn%2==1)
+    {
+        last=nn%10;
+        if(last==0)
+        console.log(nn);
+        else
+        {   nn/=10;
+            nn=Math.floor(nn);
+            console.log(last+nn.toString());
+        }
+    }
+}
+lastbring(245);
+
+//Exercise 5
+Given five numbers as input. Calculate and print the average of the numbers(without
+using arrays).
+
+function avg(a=45,b=-12,c=0,d=3,e=-15)
+{ 
+    let average=(a+b+c+d+e)/5;
+    console.log(average);
+}
+avg();
+
+//Exercise 6
+Check if a number is a multiple of 3, 5 or 7 and output the appropriate message.
+
+function m(num,a,b,c)
+{
+let message;
+    if(num%a==0&&num%b==0&&num%c==0)
+        message=(num+' is a multiple of '+a+','+b+' and '+c);
+else
+    if(num%a!=0&&num%b==0&&num%c==0)
+        message=(num+' is a multiple of '+b+' and '+c);
+else
+    if(num%a==0&&num%b!=0&&num%c==0)
+        message=(num+' is a multiple of '+a+' and '+c);
+else
+    if(num%a==0&&num%b==0&&num%c!=0)
+        message=(num+' is a multiple of '+a+' and '+b);
+else 
+    if(num%a==0&&num%b!=0&&num%c!=0)
+        message=(num+' is a multiple of '+a);
+else
+    if(num%a!=0&&num%b!=0&&num%c==0)
+        message=(num+' is a multiple of '+c);
+else
+    if(num%a!=0&&num%b==0&&num%c!=0)
+        message=(num+' is a multiple of '+b);
+else
+    if(num%a!=0&&num%b!=0&&num%c!=0)
+        message=(num+' is not multiple of '+a+','+b+' and '+c);
+console.log(message);
+}
+m(18,3,5,7);
+
+//Exercise 8
+Find the sign of product of three numbers without multiplication operator. Display the
+specified sign.
+
+function sign( a=5,b=19,c=-2)
+{
+if(a<0&&b<0&&c<0||a<0&&b>0&&c>0||a>0&&b>0&&c<0||a>0&&b<0&&c>0)
+console.log('-');
+else if(a<0&&b<0&&c>0||a<0&&b>0&&c<0||a>0&&b<0&&c<0||a<0&&b>0&&c<0)
+console.log('+');
+else if(a==0||b==0||c==0)
+console.log('unsigned');
+}
+sign();
+
+
+//Exercise 9
+Insert a digit and a number. Check whether the digits contains in the number or not.
+
+let number='4568',digit='6';
+let pos=number.indexOf(digit);
+if(pos!=-1)
+    console.log('YES')
+else 
+    console.log('NO')
+    
+ //Exercise 10
+ Enter a number. Reverse its first and last digits. Print the new number.
+ 
+function reverse(num=895796){
+let n=num.toString();
+let first,last;
+if(num<10)
+{
+    console.log(num);
+}
+else
+{
+    last=num%10;
+    while(num>10)
+    {
+        num/=10;
+    }
+    first=Math.floor(num);
+    n = n.slice(1,n.length-1);
+    console.log(last+n+first);
+}
+}
+reverse();

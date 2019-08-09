@@ -14,6 +14,8 @@ if(a%b==0||b%a==0)
 }
 }
 floor(5,15);
+floor(34,9);
+floor(2,7);
 
 //Exercise 2
 Given two variables, which are the angles of a triangle. Find the third angle of the
@@ -21,24 +23,33 @@ triangle. (Sum of the angles of a triangle equals 180 degrees).
 
 function thirdangle(one,two)
 {
-    if(one+two>=180)
-        console.log('Too big!');
-    else
+    if(one+two>=180||one<0||two<0){
+        console.log('Your input is too big, or negative. Please enter another');
+    }
+        else
 
         {let three=180-(one+two);
         console.log('Third angle will be '+three);
         }
 }
-thirdangle(25,60);
+thirdangle(25,-60);
+thirdangle(45,90);
+thirdangle(30,30);
+thirdangle(75,25);
 
 //Exercise 3
 Given number n (positive integer). Print the value of n + nn + nnn(not multiplication).
 
 function f1(n){
-if(n>0&&n%2==0||n%2==1)
-console.log(`${n}${n+n}${n+n+n}`);
+if(n>0&&n%2===0||n%2===1)
+{   
+    let k=n+n,d=n+n+n;
+    console.log(n+=k+=d.toString());
 }
-f1(5);
+}
+f1(3);
+f1(17);
+f1(100);
 
 //Exercise 4
 Given a positive integer. Bring the last digit of the number to the beginning. Print the new
@@ -47,14 +58,18 @@ number. If the last digit of the inserted number is 0, number remains the same.
 function lastbring(nn)
 {
     let last;
-    if(nn<10)
+    if(nn<10){
+
         console.log(nn);
-else
-    if(nn>0&&nn%2==0||nn%2==1)
+}  
+else 
+
+    if(nn%2===0||nn%2===1)
     {
         last=nn%10;
-        if(last==0)
+        if(last===0){
         console.log(nn);
+        }
         else
         {   nn/=10;
             nn=Math.floor(nn);
@@ -62,7 +77,10 @@ else
         }
     }
 }
-lastbring(245);
+lastbring(250);
+lastbring(367);
+lastbring(1002);
+lastbring(8);
 
 //Exercise 5
 Given five numbers as input. Calculate and print the average of the numbers(without
@@ -74,6 +92,7 @@ function avg(a=45,b=-12,c=0,d=3,e=-15)
     console.log(average);
 }
 avg();
+avg(5,-3,0,8,3);
 
 //Exercise 6
 Check if a number is a multiple of 3, 5 or 7 and output the appropriate message.
@@ -81,58 +100,108 @@ Check if a number is a multiple of 3, 5 or 7 and output the appropriate message.
 function m(num,a,b,c)
 {
 let message;
-    if(num%a==0&&num%b==0&&num%c==0)
+    if(num%a===0&&num%b===0&&num%c===0){
         message=(num+' is a multiple of '+a+','+b+' and '+c);
+    }
 else
-    if(num%a!=0&&num%b==0&&num%c==0)
+    if(num%a!=0&&num%b===0&&num%c===0){
         message=(num+' is a multiple of '+b+' and '+c);
+    }
 else
-    if(num%a==0&&num%b!=0&&num%c==0)
+    if(num%a===0&&num%b!=0&&num%c===0){
         message=(num+' is a multiple of '+a+' and '+c);
+    }
 else
-    if(num%a==0&&num%b==0&&num%c!=0)
+    if(num%a===0&&num%b===0&&num%c!=0){
         message=(num+' is a multiple of '+a+' and '+b);
+    }
 else 
-    if(num%a==0&&num%b!=0&&num%c!=0)
+    if(num%a===0&&num%b!=0&&num%c!=0){
         message=(num+' is a multiple of '+a);
+    }
 else
-    if(num%a!=0&&num%b!=0&&num%c==0)
+    if(num%a!=0&&num%b!=0&&num%c===0){
         message=(num+' is a multiple of '+c);
+    }
 else
-    if(num%a!=0&&num%b==0&&num%c!=0)
+    if(num%a!=0&&num%b===0&&num%c!=0){
         message=(num+' is a multiple of '+b);
+    }
 else
-    if(num%a!=0&&num%b!=0&&num%c!=0)
+    if(num%a!=0&&num%b!=0&&num%c!=0){
         message=(num+' is not multiple of '+a+','+b+' and '+c);
+    }
 console.log(message);
 }
-m(18,3,5,7);
+m(21,3,5,7);
+m(35,3,5,7);
+m(13,3,5,7);
+m(24,3,5,7);
+m(420,3,5,7);
 
 //Exercise 8
 Find the sign of product of three numbers without multiplication operator. Display the
 specified sign.
 
-function sign( a=5,b=19,c=-2)
+function sign( a=-7,b=5,c=5)
 {
 if(a<0&&b<0&&c<0||a<0&&b>0&&c>0||a>0&&b>0&&c<0||a>0&&b<0&&c>0)
+{
 console.log('-');
-else if(a<0&&b<0&&c>0||a<0&&b>0&&c<0||a>0&&b<0&&c<0||a<0&&b>0&&c<0)
+}
+else if(a<0&&b<0&&c>0||a<0&&b>0&&c<0||a>0&&b<0&&c<0||a>0&&b>0&&c>0)
+{
 console.log('+');
-else if(a==0||b==0||c==0)
+}
+else if(a===0||b===0||c===0)
+{
 console.log('unsigned');
 }
-sign();
+}
+sign(-14,5,0);
+sign(-8,9,-6);
+sign(4,19,-2);
 
 
 //Exercise 9
 Insert a digit and a number. Check whether the digits contains in the number or not.
 
-let number='4568',digit='6';
-let pos=number.indexOf(digit);
-if(pos!=-1)
-    console.log('YES')
-else 
-    console.log('NO')
+function contain(n=8,digit=2)
+{
+        let d=false;
+        if(n>=0&&n<10&&n===digit)
+        
+            {
+                console.log('Yes');
+                
+            }
+
+        else
+        {
+            while(n>0)
+            {
+                    k=n%10;   
+                    if(k===digit)
+                    {
+                        console.log('Yes');
+                        d=true;
+                        break;
+                    }
+                    
+                    {       
+                        n/=10;
+                        n=Math.floor(n)
+                        
+                    }
+            }
+                    if(!d)
+                    console.log('No');
+
+}
+}
+contain(2463,5);
+contain(6,4);
+contain(45683,8);
     
  //Exercise 10
  Enter a number. Reverse its first and last digits. Print the new number.

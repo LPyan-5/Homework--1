@@ -51,6 +51,7 @@ f1(3);
 f1(17);
 f1(100);
 
+
 //Exercise 4
 Given a positive integer. Bring the last digit of the number to the beginning. Print the new
 number. If the last digit of the inserted number is 0, number remains the same.
@@ -66,6 +67,14 @@ else
 
     if(nn%2===0||nn%2===1)
     {
+        numDigits = 0;
+        integers = Math.abs(nn);
+
+        while (integers > 0) {
+        integers = (integers - integers % 10) / 10;
+        numDigits++;
+    }
+  
         last=nn%10;
         if(last===0){
         console.log(nn);
@@ -73,7 +82,7 @@ else
         else
         {   nn/=10;
             nn=Math.floor(nn);
-            console.log(last+nn.toString());
+            console.log(last*Math.pow(10,numDigits-1)+nn);
         }
     }
 }
